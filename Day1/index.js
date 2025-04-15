@@ -83,7 +83,7 @@ function greet1(name = "Guest") {
 
 function sum(...nums) {
   // rest parameter , can take any no. of parameter stores them in array
-  return nums.reduce((a, b) => a + b);
+  return nums.reduce((a, b) => a + b, 0);
 }
 
 function multiplier(factor) {
