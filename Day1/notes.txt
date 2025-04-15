@@ -1,0 +1,90 @@
+Day 1 Notes:
+
+1. For every block ({}), function, or global scope, a new Execution Context is created. It decides what variables exist, and how control flows.
+2. JavaScript has ASI (Automatic Semicolon Insertion), but it can lead to bugs:
+    if (true)
+        let x = 5; // error because of ASI, so always use {} in no-strict mode
+3. If you assign a variable without let, const, or var, it becomes global — bad practice!
+4. Closures work because of Lexical Environment — the inner function remembers the outer variables even after the outer function finishes.
+
+5. Strict mode-
+    -> changes the way this behaves and disables automatic global var creation
+    ->  this inside a function returns undefined instead of window (in browsers)
+    -> function test(a, a) {} // error in strict mode
+
+6. Closures-
+    -> when function runs its execution context is created, it holds the Lexical scope, when execution context ends
+        but Lexical scope of function remains that is why function within it has access to parent scope.
+
+7. Hoisting-
+    -> In the creation phase of an execution context:
+        var is hoisted and initialized with undefined
+        let and const are hoisted but put in the Temporal Dead Zone (TDZ) — not accessible until initialized
+    -> Function declarations are hoisted with definitions But function expressions are not.
+    -> typeof a; //  ReferenceError if a is let/const in TDZ
+
+8. The Flow-
+    -> JS parses code → builds Lexical Environments
+    -> Creates Execution Contexts → hoists vars/functions
+    -> let/const go to TDZ → accessible only after definition
+    -> Closures = Lexical Environments surviving beyond execution
+
+9. Best practice-
+    -> Always declare variables and functions at the top of their scope intentionally.
+    -> Use let, const (not var) — and avoid confusion with TDZ and implicit undefineds.
+    -> It’s a bad practice to rely on Hoisting.
+
+10. Variable and Data type-
+    -> Primitive-  immutable and stored by value
+    -> Referenced - mutable and stored by Reference.
+    -> js is loosely typed so data can implicitly or explicitly converted from one type to other
+
+11. Type Queries-
+    -> const means you cannot reassign the variable reference, i.e., you can't do-
+        const a=10;
+        a=12; // trying to reassign 
+        but  you can change the contents of the one you’re pointing at.(for objects only)
+    -> spread operator creates shallow copy of only the top level of the object.
+    -> undefined- A variable has been declared but not assigned any value yet. memory value -> "undefined" key
+    -> null - A value that has been intentionally set to "no value". memory value ->  null pointer (0x00) i.e why type of null  is object.
+    -> NaN- An invalid number operation happened.
+        -> It's still of type number
+        -> NaN !== NaN → it’s the only value in JS not equal to itself
+        -> stored as a special bit pattern in the IEEE 754 floating-point format.
+
+12. 
+        Keyword	    Scope	    Reassign?	Redeclare?	Hoisting	Temporal Dead Zone (TDZ)
+        var	        function	Yes	        Yes	        Yes	        No
+        let	        block	    Yes	        No	        Yes	        Yes
+        const	    block	    No	        No	        Yes	        Yes
+
+13. Operators and expressions-
+    -> A precedence (order of execution)
+    -> An associativity (left-to-right or right-to-left)
+    -> A type coercion strategy if operands aren't the same type
+
+14. loops use case-
+    -> for : when you know the no. of iterations and control over index
+    -> while : condition based traversing, dont know how many times
+    -> for...of : traversing elements of arrays,string etc.
+    -> for...in : traversing properties of objects
+
+15. Functions-
+    -> each functions has execution context
+    -> a closure(Lexical Environment)
+    -> are first class citizens
+    -> function declaration are hoisted but expressions are not
+    -> take the scope of object which calls them
+
+16. Arrow function-
+    -> no this
+    -> they take the lexical scope of parent (which should be a function only)
+
+17. Extras -
+    -> In a programming language, a value is considered "first-class" if it can be: Stored in variables,
+        Passed as an argument, Returned from a function, Assigned to properties (like objects) andd Stored in data structures
+        i.e why functions called first-class-citizens.
+    -> At the top level, this refers to module.exports, not the global object.
+    -> Inside a regular function, if not in strict mode, "this" will default to the global object in Node called global.
+    -> Shallow Copy	: Copies only the first level. Nested objects still reference the original.
+    -> Deep Copy : Recursively copies all levels. Entirely new and independent structure.
