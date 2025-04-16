@@ -68,7 +68,7 @@ Notes for Day 2:
         -> an object that holds various methods.
         -> to use those methods we have to add the that prototype constructor in prototype property of our object.
         -> when constructor is called that prototype object is created, hence we can use the methods.
-        -> all arrays inherit the array.prototype object
+        -> all arrays inherit the Array.prototype object
 
 9. Object
     -> collection of key value pairs
@@ -100,3 +100,5 @@ Notes for Day 2:
     -> Sparse array has empty items which are ignored by array traversal methods.
     -> __proto__ : is a reference to the prototype of the object it belongs to.
     -> A polyfill is a piece of code (usually JS) that implements a feature that doesn't exist in the user's browser.
+    -> the freeze is shallow , can freeze only the top level
+    -> the slice is also shallow.

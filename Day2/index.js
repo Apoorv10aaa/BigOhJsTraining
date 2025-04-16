@@ -21,7 +21,7 @@ function outer() {
 }
 let inner = outer();
 console.log("closure example", inner()); // 6
-
+var c = 11;
 function func2() {
   if (true) {
     let b = 10;
@@ -40,7 +40,7 @@ function showArgs() {
 showArgs(1, 2, 3);
 
 let d = 5;
-let e = a;
+let e = d;
 e = 10;
 console.log("d", d); // d=5 not affected beacuse e stores just value
 
@@ -66,11 +66,11 @@ console.log("access out of bound index-", fruits[10]); // undefined (no error)
 fruits.push("Grapes", "Guawa");
 console.log("fruits pushed", fruits);
 fruits.pop(); // removes last element and returns the removed element
-fruits.splice(2, 2, "berry", "tomato");
+fruits.splice(2, 1, "berry", "tomato");
 console.log("fruits spliced", fruits);
 
-console.log("Slice of arr", fruits.slice(1, 10));
-console.log("reverse the array", fruits.reverse());
+console.log("Slice of arr", fruits.slice(1, 10)); // a shallow copy of arr
+console.log("reverse the array", fruits.reverse()); // in place reverse
 
 const arr = [1, 2, 3];
 arr.forEach((ele, index) => {
@@ -80,7 +80,7 @@ arr.forEach((ele, index) => {
 let newArr = arr.map((ele) => ele * 2);
 console.log(newArr);
 
-newArr = arr.filter((ele) => ele % 2 == 0);
+newArr = arr.filter((ele) => ele > 1);
 console.log(newArr);
 
 console.log(
@@ -106,11 +106,11 @@ const countOfFruits = fruits.reduce((acc, curr) => {
 console.log("occurence of fruits", countOfFruits);
 
 const user = {
-  // object creation
+  // object creation by literal
   name: "Apoorv",
   age: 22,
   address: {
-    area: "Lucknow",
+    "area name": "Lucknow",
     pin: 226017,
   },
   isDeveloper: true,
@@ -120,12 +120,12 @@ const user = {
 };
 console.log("Object-", user);
 
-const person = new Object();
+const person = new Object(); // object creating by new keyword
 person.name = "Apoorv";
 person.age = 22;
 console.log("person object-", person);
 
-console.log("Dot", user.name); // Apoorv: this is dot notation
+console.log("Dot", user["area name"]); // Apoorv: this is dot notation
 let key = "name";
 console.log("Bracket", user[key]); // Apoorv: bracket notation
 
@@ -138,7 +138,7 @@ console.log("After changes in shallow copy-", user);
 
 console.log("keys", Object.keys(user));
 console.log("entries", Object.entries(user));
-console.log("has own", Object.hasOwn(user, "name"));
+console.log("has own", Object.hasOwn(user, "age"));
 
 let frozenUser = Object.freeze(user);
 frozenUser.name = "Amit"; // this is ignored
