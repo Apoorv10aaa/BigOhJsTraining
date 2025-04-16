@@ -1,0 +1,102 @@
+Notes for Day 2:
+
+1. Hoisting-
+    -> Hoisting is JavaScript’s default behavior of moving declarations (not initializations) 
+        to the top of their scope before code execution.
+    -> applicable to let,var,const,functions and objects.
+    -> function expressions are not hoisted
+    -> let and const are hoisted but put in TDZ.
+
+2. Scope- 
+    -> means where a variable or an object is accessible.
+    -> var is function scoped so, it leaks out out of the blocks
+
+3. Arguments in function-
+    -> it can take n no. of parameters and stores it into an "array like object" called arguments.
+    -> we use the spread operator in place of arguments and call it "rest parameter".
+
+4. Callback function-
+    -> when functions are passed as arguments to other functions.
+    -> we try to use arrow functions as callbacks as they solve the complexity of "this"
+
+5. Arrays-
+    -> can store any type of data.
+    -> have numeric keys that point to data.
+    -> actually an js object.
+    -> isArray() for telling if array or not.
+    -> Holes in arrays	arr[5] = "x" leaves holes from 0–4 if not filled.
+    -> Arrays are dynamic JS arrays grow or shrink as needed.
+
+6. Common Arrays methods-
+    -> arr.push() : Add at the end and Returns: New length of the array.
+    -> pop() – Remove from end and Returns: Removed element.
+    -> shift() – Remove from start and Returns: Removed element. (slower than pop as all elements are reindexed)
+    -> unshift() – Add at the start What: Adds one or more elements at the beginning. Returns: New length.
+    -> splice(start, deleteCount, ...items) – Insert/Delete/Replace. Very powerful for changing array contents.
+    -> slice(start, end) – Copy subarray. Does not change original array. Returns a shallow copy.
+    -> concat() – Merge arrays. Joins two or more arrays, returns a new one.
+    -> indexOf() and includes()
+        -> indexOf: Returns index or -1
+        -> includes: Returns true/false
+    -> reverse() - Reverses the array in place.
+
+7. Array Iteration methods-
+    -> forEach() – Clean way to iterate
+        -> What: Runs a callback on each element.
+        -> Doesn’t return anything.
+        -> Cannot break/continue.
+    -> for...of – Value-based iteration
+        -> What: Iterates values of iterable (like arrays, strings, sets).
+        -> Clean, breakable, and readable.
+        -> Doesn’t give you index directly.
+    -> map() – Transform array (returns new array)
+        -> return new array of same length.
+        -> best for array transformation.
+    -> filter() – Keep what passes the test
+        -> Returns new array, only values where callback returns true.
+    -> reduce() – Collapse array to single value
+        -> Internally maintains an accumulator.
+        -> Used for total, grouping, object creation, flattening, etc.
+    -> find() & findIndex()
+        -> find() → returns first value matching the test.
+        -> findIndex() → returns its index.
+
+8. Array Properties-
+    -> Array properties are built-in characteristics that help describe or interact with an array — like its size, contents, and special behavior.
+    -> eg. length,constructor,prototype,indexOf,includes and isArray.
+    -> Prototype-
+        -> an object that holds various methods.
+        -> to use those methods we have to add the that prototype constructor in prototype property of our object.
+        -> when constructor is called that prototype object is created, hence we can use the methods.
+        -> all arrays inherit the array.prototype object
+
+9. Object
+    -> collection of key value pairs
+    -> also has values and properties and prototype
+    -> Dot notation: Property name is a valid identifier (no spaces, starts with a letter).
+    -> Bracket notation: Property name is dynamic or stored in a variable.
+    -> Object.keys(obj)-  Get all property names
+    -> Object.values(obj)- Get all property values
+
+10. Object Methods-
+    -> Object.keys(obj): Returns an array of the object's own enumerable property names.
+    -> Object.values(obj): Returns an array of the object's own enumerable property values.
+    -> Object.entries(obj): Returns an array of [key, value] pairs.
+    -> Object.hasOwn(obj, key): Replaces hasOwnProperty safely, doesn’t look up prototype chain.
+    -> structuredClone(obj): makes deep copy of object
+    -> Object.freeze(obj): Makes the object completely immutable.
+    -> Object.seal(obj): cannot add or delete properties but modify existing ones.
+    -> Object.preventExtension(obj): cannot add new properties but delete and modify.
+
+# Extras-
+    -> We can spread arrays to arrays and object to object only, also array-like object to array.
+    -> Object.getPrototypeOf(arr) gives the complete prototype chain of arr.
+    -> When you access a property or method like arr.map, JS follows a chain:
+        -> arr → arr.__proto__ (Array.prototype) → Object.prototype → null
+    -> we can modify Array.prototype by-
+        -> Array.prototype.sayHi = function() {
+            console.log("Hi from array!");
+            };
+    -> Sparse array has empty items which are ignored by array traversal methods.
+    -> __proto__ : is a reference to the prototype of the object it belongs to.
+    -> A polyfill is a piece of code (usually JS) that implements a feature that doesn't exist in the user's browser.
