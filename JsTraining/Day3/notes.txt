@@ -1,0 +1,49 @@
+Day 3 notes: 
+
+1. Destructuring:
+    -> mapping of values of array or objects to a varible in a clean readable manner.
+    -> JavaScript uses pattern matching under the hood to map variables on the left to values on the right, based on structure.
+    -> Variable names must match object property names.
+
+2. Spread and Rest operator:
+    -> Spread means explanding and rest means collecting.
+    -> Spread/rest only works one level deep (shallow).
+
+3. ES6 features:
+    -> let and const
+    -> arrow functions
+    -> Template Literals (` `) : Make string interpolation, multiline strings, and expressions inside strings easier.
+    -> Default Parameters
+    -> Destructuring
+    -> Spread and rest operators
+    -> For...of Loop
+
+4. Callback functions:
+    -> A callback is just a function passed as an argument to another function, which is called later, often after some task completes.
+    -> Callbacks allow tasks to be scheduled without blocking the main thread.
+
+5. Promises:
+    -> A Promise is a JavaScript object that represents the eventual completion (or failure) of an asynchronous operation.
+    -> pending,fulfilled and rejected.
+    -> Promises are microtasks → They go to the microtask queue
+    -> resolve:
+        -> Marks the Promise as fulfilled,
+        -> Passes the value to .then().
+    -> reject: 
+        -> Marks the Promise as rejected,
+        -> Passes the error to .catch().
+    -> methods:
+        Method	            Resolves When…	                                Rejects When…	                         Output	                                
+        Promise.all()	    All promises are fulfilled	                    Any one promise is rejected	             Array of results (in order)	       
+        .allSettled()       All promises have settled (fulfilled/rejected)	Never rejects (returns status of each)	 Array of objects with status + value
+        Promise.race()	    First promise settles (fulfilled or rejected)	Same as resolve (whichever is first)	 First settled value
+        Promise.any()	    First promise is fulfilled	                    All promises are rejected	             First fulfilled value
+    -> .finally(): important for cleanup functions
+    
+6. async/await:
+    -> async keyword makes the function return a Promise.
+    -> await pauses the execution until the Promise resolves (or throws if it rejects).
+    -> You must use await only inside an async function.
+
+# Extras
+    -> In objects, rest doesn’t copy non-enumerable properties or prototype chains.
