@@ -1,0 +1,50 @@
+🟢 Easy (4 Questions)
+1. Destructuring Basics:
+What will be the value of b after this code runs?
+const [a, b = 2] = [1];
+
+2. Spread Operator:
+Write a function sum(...args) that takes any number of arguments and returns their sum using the rest operator.
+
+3. Template Literals:
+Convert this into a template literal:
+const name = "Apoorv";
+const greeting = "Hello, " + name + "!";
+
+4. Basic Promise Usage:
+Create a Promise that resolves with "Data received" after 2 seconds using setTimeout.
+
+🟡 Medium (3 Questions)
+1. Nested Destructuring with Renaming:
+Extract the city from the object below using destructuring and rename it to myCity.
+
+const user = {
+  name: "Apoorv",
+  address: {
+    city: "Noida",
+    pincode: 201301
+  }
+};
+2. Chained Promises:
+Create a Promise that resolves with a number. Then, chain two .then() calls to multiply the result by 2 and then add 10.
+
+3. Async/Await Practice:
+Write an async function that calls a function fakeFetch() (returns a promise that resolves after 1 sec with "done"), and logs the resolved value.
+
+🔴 Hard (3 Questions)
+1. Error Handling in Async/Await:
+Create an async function that uses try...catch to catch an error from a rejected Promise and logs "Error caught".
+
+2. Mixing Await and Destructuring:
+Using await and array destructuring, get the first element from an async function that resolves with an array:
+
+async function getData() {
+  return [10, 20, 30];
+}
+
+3. Callback to Promise Conversion:
+Convert the following callback-style function into a Promise-based version:
+
+function oldStyle(callback) {
+  setTimeout(() => callback("done"), 1000);
+}
