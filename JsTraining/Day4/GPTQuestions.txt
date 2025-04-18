@@ -1,0 +1,46 @@
+🟢 Easy (4 Questions)
+JSON Parse/Stringify
+1. Convert the following object into a JSON string and then parse it back into a JS object:
+
+const person = { name: "Apoorv", age: 22 };
+
+2. Class Constructor
+Create a class Car with properties brand and year. Add a method to return car details.
+
+3. setTimeout Practice
+Write a function that logs "Hello, Apoorv!" after 2 seconds using setTimeout.
+
+4. Fetch Basic
+Use the Fetch API to retrieve data from https://api.github.com/users/octocat and log the name.
+
+🟡 Medium (3 Questions)
+1. JSON Manipulation
+Given:
+const user = {
+  name: "Apoorv",
+  address: {
+    city: "Noida",
+    pin: 201301
+  }
+};
+Convert user to JSON string and update the key name to first_name.
+
+2. DOM Events
+Create a button in HTML and attach two different click event listeners to it using addEventListener. One should log "First click" and the second should log "Second click".
+
+3. CSS Class Toggle
+Make a div in HTML. Add a class highlight (with background color) when a button is clicked, and remove it on the second click.
+
+🔴 Hard (3 Questions)
+1. Class Inheritance + Static Method
+Create a class Person with a static method info(). Create a child class Student and show how it can access both instance and static methods of Person.
+
+2. Promises with Fetch
+Use fetch() to get data from https://api.github.com/users/octocat, then use .then() chaining to:
+Parse the data
+Log the login name
+Catch errors if any
+
+3. Basic DOM Animation
+Create a box that moves 5px to the right every 100ms using setInterval until it moves 100px total, then stops.
+

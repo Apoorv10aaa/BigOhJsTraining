@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .highlight{
+            background-color: rgb(104, 65, 17);
+        }
+        #box {
+        width: 50px;
+        height: 50px;
+        background-color: teal;
+        position: relative;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-title">DOM Practice</h1>
+
+    <div class="container">
+      <p class="text">Paragraph 1</p>
+      <p class="text">Paragraph 2</p>
+      <p class="text">Paragraph 3</p>
+    </div>
+    <div id="changingDiv" class="highlight">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime rem
+        aperiam cupiditate adipisci, consectetur nulla molestiae praesentium
+        harum culpa expedita saepe id laborum quisquam recusandae laudantium
+        vitae provident aliquid iste.
+      </p>
+      <button id="btn2">changeBg</button>
+    </div>
+    <div id="box"></div>
+    <ul id="list">
+      <li class="item">Item 1</li>
+      <li class="item">Item 2</li>
+      <li class="item">Item 3</li>
+    </ul>
+
+    <input type="text" id="input-box" placeholder="Type here" />
+    <button id="btn">Click Me</button>
+
+    <script>
+          // 2nd
+        let btn=document.getElementById("btn");
+        btn.addEventListener("click",()=>{console.log("First click")})
+        btn.addEventListener("click",()=>{console.log("Second click")})
+        // 3rd
+        let btn2=document.getElementById("btn2");
+        btn2.addEventListener("click",()=>{
+          console.log("clicked")
+          let classes=document.getElementById("changingDiv").classList;
+          if(classes.contains("highlight")){
+              classes.remove("highlight");
+          }else{
+              classes.add("highlight");
+          }
+        })
+        // 3rd hard
+        const box = document.getElementById("box");
+      let position = 0;
+
+      const intervalId = setInterval(() => {
+        if (position >= 100) {
+          clearInterval(intervalId); // Stop when it reaches 100px
+        } else {
+          position += 5;
+          box.style.left = position + "px";
+        }
+      }, 100);
+    </script>
+  </body>
+</html>

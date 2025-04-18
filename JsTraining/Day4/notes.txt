@@ -1,0 +1,80 @@
+Day 4 notes:
+
+1. JSON:
+    -> JSON (JavaScript Object Notation) is a lightweight data format used for storing and exchanging data, especially between a client and a server.
+    -> Always uses double quotes for keys.
+    -> Json is a string. 
+    -> Parsing JSON (JSON → JavaScript Object)
+    -> Stringifying (JavaScript Object → JSON)
+    -> Json store only raw data, no functions, prototypes etc.
+
+2. Classes:
+    -> normal with class keyword, can create object out of it.
+    -> no private variable but could use the convention, (_var)
+    -> constructor defines the instance variable which are stored inside the object
+    -> methods are stored within the prototype object of the class which is same for all object 
+    -> child needs to call super to use the attributes of parent class
+    -> this is binded to the current oject.
+    -> static methods are those which do not need any object to called for.
+
+3. Timers:
+    -> setTimeout(fn, delay): Executes fn once after delay ms.
+    -> setInterval(fn, delay): Executes fn repeatedly every delay ms.
+    -> Can be cancelled using clearTimeout(id) / clearInterval(id).
+    -> both return their id. 
+
+4. Date:
+    -> JavaScript’s Date object is used to handle date & time.
+    -> Common methods:
+        -> new Date() → Current date-time
+        -> .getFullYear(), .getMonth(), .getDate()
+        -> .toLocaleDateString(), .toISOString()
+
+5. Web Storage
+    -> Two types:
+    -> localStorage: persists even after browser closes.
+    -> sessionStorage: cleared when browser tab closes.
+    -> Both store data in key-value string format.
+    -> Common methods:
+        -> .setItem(key, value), .getItem(key), .removeItem(key), .clear()
+
+6. Fetch API:
+    -> The fetch() API provides a modern way to make HTTP requests (GET, POST, etc.) from the browser.
+    -> return a promise.
+    -> takes a url string and options object.
+    -> options object include request type, headers, body etc.
+
+7. DOM
+    -> Selecting Elements:
+        -> document.getElementById("id"); // one html Element
+        -> document.getElementsByClassName("class"); // Html Elements
+        -> document.getElementsByTagName("li"); // Html Elements
+        -> document.querySelector("#input-box"); // single Element, first occurence
+        -> document.querySelectorAll(".text"); // all Elements
+        -> Pseudo selectors:
+            -> Pseudo-classes: based on state like- hover, active,diabled,check,nth-child,first-child etc.
+            -> Pseudo-elements: target specific part of html like ::first_line,::first-letter,::after,::before.
+
+    -> Events:
+        -> element.addEventListener("eventType", callbackFunction);
+        -> You can remove an event listener only if you pass a named function: btn.removeEventListener("click", sayHello);
+        ->  Event	    Trigger
+            click	    When element is clicked
+            dblclick	Double-click
+            mouseover	Mouse over an element
+            mouseout	Mouse leaves element
+            keydown	    Key pressed
+            keyup	    Key released
+            submit	    Form submitted
+            change	    Input field value changes
+        -> event object holds the details of current event like name and element
+        -> Prevent form submission using .preventDefault().
+        -> event.stopPropagation(); to stop the parent react to event, happens when child and parent have same type of event locked.
+
+    -> Manipulating CSS:
+        -> element.style.color = "red";
+        -> The classList object provides a clean way to manage classes:
+            -> element.classList.add("active");      // Add a class
+            -> element.classList.remove("hidden");   // Remove a class
+            -> element.classList.toggle("dark");     // Toggle on/off
+            -> element.classList.contains("show");   // Check presence

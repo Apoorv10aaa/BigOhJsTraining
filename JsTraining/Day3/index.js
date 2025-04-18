@@ -5,7 +5,7 @@ const [a, b] = arr1;
 console.log("a and b", a, b); // a stores 10 and b stores 20
 
 const arr2 = [1, 2, 3];
-const [c, d] = arr2;
+const [c, , d] = arr2;
 console.log("c and d-", c, d); // elements are taken by index
 
 const obj1 = { user: "Apoorv", age: 20 };
@@ -102,4 +102,3 @@ async function getMyGithubData() {
     console.log(err);
   }
 }
-getMyGithubData();
