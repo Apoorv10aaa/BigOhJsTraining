@@ -4,6 +4,9 @@ function assertObjectEqual(actual, expected) {
       console.log("Expected", expected, "got", actual);
       return;
     }
-    console.log("Passed");
   }
+  console.log("Passed");
 }
+var expected = { foo: 5, bar: 6 };
+var actual = { foo: 5, bar: 7 };
+assertObjectEqual(actual, expected);

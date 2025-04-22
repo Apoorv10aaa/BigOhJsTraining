@@ -8,3 +8,4 @@ function sumNestedArray(arr) {
   }, 0);
   return sum;
 }
+console.log(sumNestedArray([[1, 2, [4], [3, [0, 1, [2]]]]]));

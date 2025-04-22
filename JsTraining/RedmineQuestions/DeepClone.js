@@ -15,5 +15,7 @@ const obj = {
   },
 };
 const clone = deepClone(obj);
-clone.obj1.p2 = 5;
+console.log(clone);
 console.log(obj);
+
+console.log(obj === clone);

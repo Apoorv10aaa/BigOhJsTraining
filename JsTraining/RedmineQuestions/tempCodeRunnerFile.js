@@ -1,0 +1,1 @@
+emitter.emit("greet", "Bob"); // No output

@@ -1,5 +1,5 @@
 function minReversals(expr) {
-  if (expr.length % 2 !== 0) return -1; // Odd length can't be balanced
+  if (expr.length % 2 !== 0) return -1;
 
   let stack = [];
 
@@ -14,8 +14,6 @@ function minReversals(expr) {
       }
     }
   }
-
-  // Now stack contains only unmatched brackets
   let open = 0,
     close = 0;
   for (let ch of stack) {
@@ -25,3 +23,5 @@ function minReversals(expr) {
 
   return Math.ceil(open / 2) + Math.ceil(close / 2);
 }
+
+console.log(minReversals("{{{{"));

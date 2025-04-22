@@ -17,3 +17,10 @@ function mergeIntervals(intervals) {
 
   return merged;
 }
+console.log(
+  mergeIntervals([
+    [1, 5],
+    [4, 6],
+    [9, 10],
+  ])
+);
