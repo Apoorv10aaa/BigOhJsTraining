@@ -1,11 +1,9 @@
 function assertObjectEqual(actual, expected) {
-  for (let key in actual) {
-    if (!expected[key] || !expected[key] === actual[key]) {
-      console.log("Expected", expected, "got", actual);
-      return;
-    }
+  if (JSON.stringify(actual) === JSON.stringify(expected)) {
+    console.log("Passed");
+  } else {
+    console.log(`Expected ${expected} got ${actual}`);
   }
-  console.log("Passed");
 }
 var expected = { foo: 5, bar: 6 };
 var actual = { foo: 5, bar: 7 };

@@ -1,22 +1,21 @@
 function manageCompany(jsonObject, operation, departmentName, employee) {
   const departments = jsonObject.company.departments;
+
   for (let dept of departments) {
     if (dept.name === departmentName) {
       if (operation === "add") {
         dept.employees.push(employee);
         break;
       } else if (operation == "remove") {
-        const employees = dept.employees;
-        for (let emp of employees) {
-          if (emp.id === employee.id) {
-            delete emp;
-            break;
-          }
-        }
+        dept.employees = dept.employees.filter((obj) => obj.id != employee.id);
+      } else if (operation == "update") {
+        dept.employees = dept.employees.filter((obj) => obj.id != employee.id);
+        dept.employees.push(employee);
       }
       break;
     }
   }
+  console.log(jsonObject.company.departments[1].employees);
 }
 
 const obj = {
@@ -39,5 +38,7 @@ const obj = {
     ],
   },
 };
-const newEmp = { id: 3, name: "Alice", role: "HR" };
+let newEmp = { id: 4, name: "Alice", role: "HR" };
 manageCompany(obj, "add", "HR", newEmp);
+newEmp = { id: 4, name: "HHH", role: "HR" };
+manageCompany(obj, "update", "HR", newEmp);

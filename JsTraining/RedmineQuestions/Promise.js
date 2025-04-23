@@ -1,21 +1,92 @@
 class MyPromise {
-  constructor(executor) {
-    // Your code here
+  constructor(handler) {
+    this.status = "pending";
+    this.onFulfilledCallbacks = [];
+    this.onRejectedCallbacks = [];
+
+    const resolve = (value) => {
+      if (this.status === "pending") {
+        this.status = "fulfilled";
+        this.value = value;
+        this.onFulfilledCallbacks.forEach((fn) => fn(value));
+      }
+    };
+
+    const reject = (value) => {
+      if (this.status === "pending") {
+        this.status = "rejected";
+        this.value = value;
+        this.onRejectedCallbacks.forEach((fn) => fn(value));
+      }
+    };
+
+    try {
+      handler(resolve, reject);
+    } catch (err) {
+      reject(err);
+    }
   }
 
   then(onFulfilled, onRejected) {
-    // Your code here
-  }
+    return new MyPromise((resolve, reject) => {
+      if (this.status === "pending") {
+        this.onFulfilledCallbacks.push(() => {
+          try {
+            const fulfilledFromLastPromise = onFulfilled(this.value);
+            if (fulfilledFromLastPromise instanceof Promise) {
+              fulfilledFromLastPromise.then(resolve, reject);
+            } else {
+              resolve(fulfilledFromLastPromise);
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+        this.onRejectedCallbacks.push(() => {
+          try {
+            const rejectedFromLastPromise = onRejected(this.value);
+            if (rejectedFromLastPromise instanceof Promise) {
+              rejectedFromLastPromise.then(resolve, reject);
+            } else {
+              reject(rejectedFromLastPromise);
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+      }
 
-  catch(onRejected) {
-    // Your code here
-  }
+      if (this.status === "fulfilled") {
+        try {
+          const fulfilledFromLastPromise = onFulfilled(this.value);
+          if (fulfilledFromLastPromise instanceof MyPromise) {
+            fulfilledFromLastPromise.then(resolve, reject);
+          } else {
+            resolve(fulfilledFromLastPromise);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
 
-  static resolve(value) {
-    // Your code here
-  }
-
-  static reject(reason) {
-    // Your code here
+      if (this.status === "rejected") {
+        try {
+          const rejectedFromLastPromise = onRejected(this.value);
+          if (rejectedFromLastPromise instanceof Promise) {
+            rejectedFromLastPromise.then(resolve, reject);
+          } else {
+            reject(rejectedFromLastPromise);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
+    });
   }
 }
+
+const promise = new MyPromise((resolve, reject) => {
+  setTimeout(() => resolve("Resolved!"), 1000);
+});
+
+promise.then((value) => console.log(value));

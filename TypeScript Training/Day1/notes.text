@@ -1,0 +1,30 @@
+Typescript-
+
+1. Intro-
+    -> TS is just for type safety, it analyzes your code as we type it.
+    -> code is converted to js.
+2. Variables-
+    -> variables are same let and const and var.
+    -> once assinged a type of value cannot change type.
+    -> type inference- ts automatically detects the type of varibale by values stored in it.
+    -> any- no type checking
+3 Functions-
+    -> should have types for each argument so you know what you are geting
+    -> should also have type for variable getting data from function.
+    -> can also set type of data function can send.
+    -> if a function throws exception or will crash then make its return type never
+4. Type alias-
+    -> a new Data type, making the structure of new data type.
+    -> providing the shape to an object
+    -> cannot be redclared and extend with other alias by &.
+5. Union-
+    -> whne not sure what type of data will hold.
+    -> use | oprator
+6. tuple-
+    -> making structure with definite type and length;
+    -> can use arrays methods bit a problem
+7. Enums-
+    -> when you have to give options to choose from but limited,
+    -> all members are default read only.
+8. Index signature-
+    -> used when we dont know the type of object properties.

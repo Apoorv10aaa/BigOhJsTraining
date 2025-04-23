@@ -25,6 +25,6 @@ class EventEmitter {
 const emitter = new EventEmitter();
 const greet = (name) => console.log(`Hello, ${name}`);
 emitter.on("greet", greet);
-emitter.emit("greet", "Alice"); // Output: Hello, Alice
+emitter.emit("greet", "Alice");
 emitter.off("greet", greet);
-emitter.emit("greet", "Bob"); // No output
+emitter.emit("greet", "Bob");
