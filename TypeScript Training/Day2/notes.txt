@@ -1,0 +1,37 @@
+Day 2 typescript-
+
+1. Interface-
+    -> used to give structure to an object
+    -> defines what properties and function a object can have.
+    -> can inherit and can be reopened
+
+2. Interface vs type alias
+    -> usage: 
+    -> Interface can be reopened but cannot redclare type
+    -> inheritance: Interface-> extends and type -> &
+    -> types could be used for primitives,or anything
+    -> all members are by default public static and final
+
+3. Tsconfig-
+    -> contains all about the type script file
+    -> can change the output directory
+    -> can make the compiler wacth the ts file by "tsc -w"
+
+4. Classes
+    -> we have public,private and protected acces modifiers,
+    -> we need to declare our properties early.
+    -> use get and set keyword for getters and setters.
+    -> when inheriting only inherit the public properties and methods.
+    -> can implement interfaces
+
+5. Abstract classes-
+    -> cannot create their own object
+    -> only child classes create object
+    -> use super to call parent classes
+    -> contains both abstarct methods and normal methods
+
+6. Generics-
+    -> to avoid definig the type of each var or function
+
+7. Narrowing-
+    -> cheking types for edge cases so that no errors arise at compile time.

@@ -88,3 +88,9 @@ Day 1 Notes:
     -> Inside a regular function, if not in strict mode, "this" will default to the global object in Node called global.
     -> Shallow Copy	: Copies only the first level. Nested objects still reference the original.
     -> Deep Copy : Recursively copies all levels. Entirely new and independent structure.
+    -> functions are called function when they are independent of objects, when they are inside objects they are called "methods".
+    -> this binding-
+        -> global-> window/node modules
+        -> function-> window/node modules
+        -> methods-> object
+        -> arrow function-> dont have or have from the parenet function
