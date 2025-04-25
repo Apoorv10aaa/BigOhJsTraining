@@ -1,0 +1,46 @@
+Day 3 Typescript-
+
+1. Type Guard-
+    -> it means to narrow down the type of a variable in a conditional block
+    -> typeof :  giev the type of variable in string form
+    -> instanceOf :  check if an object is instance of given class
+    -> userDefined: when usding union of types , make sure you know what are dealing with in the conditoonal block
+    -> in operator: check if a key/ property is in an object or not
+    -> ** put a token of check in interface to check what kind of interface we dealing with.
+    -> is operator : in customn type guards for narrowing types return boolean.
+
+2. conditional Type:
+    -> used to store a type which depends on two interfaces or types
+3. Mapped types:
+    -> when you want o create a type from a type but some changes in properties.
+4. Tempelate literal type:
+    -> when you want to create string whose value depend on a type you can use the template literal to create a type for that string value
+
+5. Utility types:
+    -> used to transform and use already defined types with some changes.
+    -> Partials<T>: makes a new type with all properties of type T all set to "optional";
+    -> Required<T> : make all properties Required.
+    -> ReadOnly<T>
+    -> Pick<T,K>: make a new type from T choosing K keys from T as it is.
+    -> Record<K,T>: make a type which will have keys of T with a type you mention.
+    -> Omit <T,Keys>: make a new type that has all keys from T except Keys.
+
+    -> Parameters<F>: extract the type of Parameters of function F a tuple type.
+    -> ReturnType<F>: extract the type of return of typeof function F
+
+    -> NonNullable<T>: make a new Type which removes null or undefined types from original for unions ofcourse.
+    -> Extract<T,U>: for unions to extract part of union (U) from T union.
+    -> Exclude<T,U>: make a type which has all keys from T but removing those which are assignable to U.
+
+6. More Types:
+    -> unknown: when dont know what kind of value a variable may store.
+    -> any : simple store anything, because no type checking happens;
+
+#Extras:
+    -> key of works on type only that is why we use typeof before keyof for getting keys of object or enums
+    -> unknown vs any : we cannot assign a variable with unknon type to any other variable of know type, but with any we can.
+    -> *** literals vs as vs satisfies
+        -> by literal we know the exact type of the varibale.
+        -> assert tell tyscript to belive on what you have written and accept it as it is.
+        -> satisfies tell ts to infer the type based on code.
+        -> satisfies assign the correct type to the varibale if multiple are there. 
