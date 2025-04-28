@@ -4,7 +4,7 @@ type User={
         strt:string | null;
     }
 }
-type DefinedProperties<Type>=Type extends object? {
+type DefinedProperties<Type>=Type extends object? { // without as 
     [key in keyof Type as Type[key] extends null|undefined ? never : key ]:DefinedProperties<Type[key]>
 }: NonNullable<Type>;
 

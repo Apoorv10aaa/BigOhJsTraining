@@ -8,7 +8,7 @@ const obj:Obj={
 }
 
 function updateObject<T extends object,S extends keyof T>(obj:T,key:S,val:T[S]):T{
-    if(typeof obj=== "object" && obj!=null){
+    if(typeof obj=== "object"){
         obj[key]=val;
     }
     return obj;

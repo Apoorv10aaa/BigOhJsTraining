@@ -12,7 +12,7 @@ function mergeUserData(users:User[],data:Purchase[],option:string):User[]{
     return users
 }
 
-type Users={
+type User={
     id: number, 
     name: string,
     email: string
@@ -41,5 +41,6 @@ const users:User[]= [
     { userId: 2, item: "Monitor", price: 200 },
   ];
   
-  console.log(mergeUserData(users,purchases,"purchase"));
+  console.log();
   
+  const t=mergeUserData(users,purchases,"purchase")
